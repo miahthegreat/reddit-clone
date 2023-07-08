@@ -4,6 +4,7 @@ import { getAuthSession } from "@/lib/auth";
 import { UserAccountNav } from "./UserAccountNav";
 import { FcReddit } from "react-icons/fc";
 import ThemeToggle from "./ThemeToggle";
+import SearchBar from "./SearchBar";
 
 const Navbar = async () => {
   const session = await getAuthSession();
@@ -20,7 +21,7 @@ const Navbar = async () => {
         </Link>
 
         {/* search bar */}
-
+        <SearchBar />
         {/* auth */}
         <div className="flex items-center gap-4">
           <ThemeToggle />
