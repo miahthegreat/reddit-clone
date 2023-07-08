@@ -9,10 +9,10 @@ export async function GET(req: Request) {
 
   let followedCommunitiesIds: string[] = []
 
-  if (session && session.user) {
+  if (session) {
     const followedCommunities = await db.subscription.findMany({
       where: {
-        userId: session?.user?.id,
+        userId: session.user.id,
       },
       include: {
         subreddit: true,
