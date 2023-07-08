@@ -28,7 +28,7 @@ const style = {
 
 const EditorOutput: FC<EditorOutputProps> = ({ content }) => {
   return (
-    // @ts-expect-error
+    // @ts-ignore
     <div className="post-content">
       <Output
         style={style}
