@@ -8,36 +8,70 @@
 .dark .cdx-button,
 .dark .ce-popover,
 .dark .ce-toolbar__plus:hover {
-  background: theme('colors.popover.DEFAULT');
-  color: inherit;
-  border-color: theme('colors.border');
+  background: #1a1a1a;
+    color: white;
+    border-color: theme("colors.border");
+  }
+
+.dark .ce-toolbar__plus {
+  background-color: transparent;
+  border: 1px solid #E8E8EB;
+  -webkit-box-shadow: 0 3px 15px -3px rgba(13, 20, 33, .13);
+  box-shadow: 0 3px 15px -3px #0d142121;
+  border-radius: 6px;
 }
 
+.dark .ce-popover-item:hover,
+.ce-popover-item--focus {
+  background: var(--color-background-item-focus);
+}
+
+.dark .ce-popover-item__title {
+  color: white;
+  border-color: theme("colors.border");
+}
 .dark .ce-inline-tool,
 .dark .ce-conversion-toolbar__label,
 .dark .ce-toolbox__button,
 .dark .cdx-settings-button,
 .dark .ce-toolbar__plus {
-  color: inherit;
+  color: white;
+  }
+  
+  @media (max-width: 650px) {
+    .ce-toolbar__plus {
+      position: absolute;
+      background-color: transparent;
+      border: 1px solid #E8E8EB;
+      -webkit-box-shadow: 0 3px 15px -3px rgba(13, 20, 33, .13);
+      box-shadow: 0 3px 15px -3px #0d142121;
+      border-radius: 6px;
+      z-index: 2;
+      position: static;
+    }
+  }
+  
+  .ce-popover-item--focused:not(.ce-popover-item--no-focus) {
+    background: var(--color-background-item-focus) !important;
 }
 
 .dark .ce-popover__item-icon,
 .dark .ce-conversion-tool__icon {
-  background-color: theme('colors.muted.DEFAULT');
+  background-color: #eee;
   box-shadow: none;
 }
 
 .dark .cdx-search-field {
-  border-color: theme('colors.border');
-  background: theme('colors.input');
+  border-color: theme("colors.border");
+    background: theme("colors.input");
   color: inherit;
 }
 
 .dark ::selection {
-  background: theme('colors.accent.DEFAULT');
+  background: theme("colors.accent.DEFAULT");
 }
 
-.dark .cdx-settings-button:hover,
+/* .dark .cdx-settings-button:hover,
 .dark .ce-settings__button:hover,
 .dark .ce-toolbox__button--active,
 .dark .ce-toolbox__button:hover,
@@ -47,12 +81,13 @@
 .dark .ce-popover__item:hover,
 .dark .ce-conversion-tool:hover,
 .dark .ce-toolbar__settings-btn:hover {
-  background-color: theme('colors.accent.DEFAULT');
-  color: theme('colors.accent.foreground');
-}
+  background-color: #2a2a2a;
+    color: black;
+  }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
 .dark .cdx-notify--error {
-  background: theme('colors.destructive.DEFAULT') !important;
+  background: theme("colors.destructive.DEFAULT") !important;
 }
 
 .dark .cdx-notify__cross::after,
