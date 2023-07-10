@@ -3,7 +3,6 @@ import { cn } from "@/lib/utils";
 import { Inter } from "next/font/google";
 import Providers from "@/components/Providers";
 import { Toaster } from "@/components/ui/Toaster";
-import { ServerThemeProvider } from "@wits/next-themes";
 
 import "@/styles/globals.css";
 
@@ -22,28 +21,26 @@ export default function RootLayout({
   authModal: React.ReactNode;
 }) {
   return (
-    <ServerThemeProvider attribute="class">
-      <html lang="en">
-        <body>
-          <Providers>
-            {/* @ts-expect-error Server Component */}
-            <Navbar />
-            {authModal}
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        <Providers>
+          {/* @ts-expect-error Server Component */}
+          <Navbar />
+          {authModal}
 
-            <div className="w-full bg-zinc-50 dark:bg-black-800">
-              <div
-                className={cn(
-                  "light container mx-auto h-full min-h-screen max-w-7xl bg-slate-50 pt-24 text-zinc-900 antialiased dark:bg-black-800 dark:text-slate-50",
-                  inter.className
-                )}
-              >
-                {children}
-              </div>
+          <div className="w-full bg-zinc-50 dark:bg-black-800">
+            <div
+              className={cn(
+                "light container mx-auto h-full min-h-screen max-w-7xl bg-slate-50 pt-24 text-zinc-900 antialiased dark:bg-black-800 dark:text-slate-50",
+                inter.className
+              )}
+            >
+              {children}
             </div>
-          </Providers>
-          <Toaster />
-        </body>
-      </html>
-    </ServerThemeProvider>
+          </div>
+        </Providers>
+        <Toaster />
+      </body>
+    </html>
   );
 }

@@ -7,6 +7,8 @@ import * as React from "react";
 
 import { Dialog, DialogContent } from "@/components/ui/Dialog";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { FcReddit } from "react-icons/fc";
 
 const Command = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive>,
@@ -43,16 +45,24 @@ const CommandInput = React.forwardRef<
     isLoading: boolean;
   }
 >(({ className, isLoading, ...props }, ref) => (
-  <div className="flex items-center border-b px-3" cmdk-input-wrapper="">
+  <div className="flex items-center border-b pl-3" cmdk-input-wrapper="">
     {isLoading ? (
       <Loader2 className="mr-2 h-4 w-4 shrink-0 opacity-50 animate-spin" />
     ) : (
-      <Search className="mr-2 h-4 w-4 shrink-0 opacity-50" />
+      <>
+        <Search className="hidden sm:block mr-2 h-4 w-4 shrink-0 opacity-50" />
+        <Link
+          href="/"
+          className="mr-2 sm:hidden shrink-0 opacity-50 flex items-center gap-4"
+        >
+          <FcReddit className="h-6 w-6" />
+        </Link>
+      </>
     )}
     <CommandPrimitive.Input
       ref={ref}
       className={cn(
-        "flex h-11 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50",
+        "flex h-8 sm:h-11 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50",
         className
       )}
       {...props}

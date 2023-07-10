@@ -23,7 +23,7 @@ export function UserAccountNav({ user }: UserAccountNavProps) {
       <DropdownMenuTrigger className="rounded-full ring-2 ring-zinc-400 ring-offset-1 focus-within:ring-2 focus-within:ring-zinc-500 hover:ring-2 hover:ring-zinc-500 hover:ring-offset-1 focus:ring-2 focus:ring-zinc-500">
         <UserAvatar
           user={{ name: user.name || null, image: user.image || null }}
-          className="h-8 w-8 rounded-full"
+          className="h-6 w-6 sm:h-8 sm:w-8 rounded-full"
         />
       </DropdownMenuTrigger>
       <DropdownMenuContent className="bg-white" align="end">
