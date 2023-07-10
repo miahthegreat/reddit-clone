@@ -3,6 +3,7 @@ import { buttonVariants } from "./ui/Button";
 import { getAuthSession } from "@/lib/auth";
 import { UserAccountNav } from "./UserAccountNav";
 import { FcReddit } from "react-icons/fc";
+import { MdOutlineLogin } from "react-icons/md";
 import ThemeToggle from "./ThemeToggle";
 import SearchBar from "./SearchBar";
 
@@ -23,13 +24,17 @@ const Navbar = async () => {
         {/* search bar */}
         <SearchBar />
         {/* auth */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-4">
           <ThemeToggle />
           {session?.user ? (
             <UserAccountNav user={session.user} />
           ) : (
-            <Link href="sign-in" className={buttonVariants()}>
-              Sign In
+            <Link
+              href="sign-in"
+              className="flex justify-center rounded-full h-6 w-6 sm:h-8 sm:w-8 items-center bg-transparent text-zinc-900 ring-2 ring-zinc-400 ring-offset-1 focus-within:ring-2 focus-within:ring-zinc-500 hover:bg-zinc-200 hover:ring-2 hover:ring-zinc-500 hover:ring-offset-1 focus:ring-2 focus:ring-zinc-500 dark:bg-transparent dark:text-zinc-50 dark:hover:bg-zinc-800"
+            >
+              <span className="sr-only">Sign In</span>
+              <MdOutlineLogin className="h-4 w-4 sm:h-5 sm:w-5" />
             </Link>
           )}
         </div>
