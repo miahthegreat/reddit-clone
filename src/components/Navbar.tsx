@@ -24,7 +24,7 @@ const Navbar = async () => {
         {/* search bar */}
         <SearchBar />
         {/* auth */}
-        <div className="flex items-center gap-2 sm:gap-4">
+        <div className="flex items-center gap-6 sm:gap-4">
           <ThemeToggle />
           {session?.user ? (
             <UserAccountNav user={session.user} />

@@ -29,7 +29,7 @@ const ThemeToggle = () => {
     >
       <FaSun
         className={cn(
-          "absolute h-4 w-4 sm:h-5 sm:w-5 transform rounded-full transition duration-300 ease-in",
+          "absolute h-5 w-5 sm:h-6 sm:w-6 transform rounded-full transition duration-300 ease-in",
           resolvedTheme === "light"
             ? "-rotate-0 scale-100"
             : "-rotate-180 scale-0"
@@ -37,7 +37,7 @@ const ThemeToggle = () => {
       />
       <FaMoon
         className={cn(
-          "absolute h-4 w-4 sm:h-5 sm:w-5 transform rounded-full transition duration-300 ease-in",
+          "absolute h-5 w-5 sm:h-6 sm:w-6 transform rounded-full transition duration-300 ease-in",
           resolvedTheme === "dark"
             ? "-rotate-0 scale-100"
             : "-rotate-180 scale-0"
