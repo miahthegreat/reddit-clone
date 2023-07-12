@@ -51,51 +51,63 @@ const PostFeed: FC<PostFeedProps> = ({ initialPosts, subredditName }) => {
   const posts = data?.pages.flatMap((page) => page) ?? initialPosts;
 
   return (
-    <ul className="flex flex-col col-span-2 space-y-6">
-      {posts.map((post, index) => {
-        const votesAmt = post.votes.reduce((acc, vote) => {
-          if (vote.type === "UP") return acc + 1;
-          if (vote.type === "DOWN") return acc - 1;
-          return acc;
-        }, 0);
+    <>
+      {posts && posts.length > 0 ? (
+        <ul className="flex flex-col col-span-2 space-y-6">
+          {posts.map((post, index) => {
+            const votesAmt = post.votes.reduce((acc, vote) => {
+              if (vote.type === "UP") return acc + 1;
+              if (vote.type === "DOWN") return acc - 1;
+              return acc;
+            }, 0);
 
-        const currentVote = post.votes.find(
-          (vote) => vote.userId === session?.user.id
-        );
+            const currentVote = post.votes.find(
+              (vote) => vote.userId === session?.user.id
+            );
 
-        if (index === posts.length - 1) {
-          // Add a ref to the last post in the list
-          return (
-            <li key={post.id} ref={ref}>
-              <Post
-                post={post}
-                commentAmt={post.comments.length}
-                subredditName={post.subreddit.name}
-                votesAmt={votesAmt}
-                currentVote={currentVote}
-              />
+            if (index === posts.length - 1) {
+              // Add a ref to the last post in the list
+              return (
+                <li key={post.id} ref={ref}>
+                  <Post
+                    post={post}
+                    commentAmt={post.comments.length}
+                    subredditName={post.subreddit.name}
+                    votesAmt={votesAmt}
+                    currentVote={currentVote}
+                  />
+                </li>
+              );
+            } else {
+              return (
+                <Post
+                  key={post.id}
+                  post={post}
+                  commentAmt={post.comments.length}
+                  subredditName={post.subreddit.name}
+                  votesAmt={votesAmt}
+                  currentVote={currentVote}
+                />
+              );
+            }
+          })}
+
+          {isFetchingNextPage && (
+            <li className="flex justify-center">
+              <Loader2 className="w-6 h-6 text-zinc-500 animate-spin" />
             </li>
-          );
-        } else {
-          return (
-            <Post
-              key={post.id}
-              post={post}
-              commentAmt={post.comments.length}
-              subredditName={post.subreddit.name}
-              votesAmt={votesAmt}
-              currentVote={currentVote}
-            />
-          );
-        }
-      })}
-
-      {isFetchingNextPage && (
-        <li className="flex justify-center">
-          <Loader2 className="w-6 h-6 text-zinc-500 animate-spin" />
-        </li>
+          )}
+        </ul>
+      ) : (
+        <div className="flex flex-col items-center justify-center text-center col-span-2 space-y-6 text-xl font-light ring-1 ring-gray-200 rounded-lg">
+          <p>
+            No posts to show. Try subscribing to a community or two or seventy.
+            You can use the search bar up top to find communities you think you
+            might enjoy.
+          </p>
+        </div>
       )}
-    </ul>
+    </>
   );
 };
 
