@@ -98,22 +98,24 @@ const Layout = async ({
                 </div>
               ) : null}
 
-              {subreddit.creatorId !== session?.user?.id ? (
-                <SubscribeLeaveToggle
-                  isSubscribed={isSubscribed}
-                  subredditId={subreddit.id}
-                  subredditName={subreddit.name}
-                />
-              ) : null}
-              <Link
-                className={buttonVariants({
-                  variant: "outline",
-                  className: "mb-6 w-full",
-                })}
-                href={`r/${slug}/submit`}
-              >
-                Create Post
-              </Link>
+              <div className="flex flew-row md:flex-col gap-4 items-center">
+                {subreddit.creatorId !== session?.user?.id ? (
+                  <SubscribeLeaveToggle
+                    isSubscribed={isSubscribed}
+                    subredditId={subreddit.id}
+                    subredditName={subreddit.name}
+                  />
+                ) : null}
+                <Link
+                  className={buttonVariants({
+                    variant: "outline",
+                    className: "py-5 md:w-full",
+                  })}
+                  href={`r/${slug}/submit`}
+                >
+                  Create Post
+                </Link>
+              </div>
             </dl>
           </div>
         </div>

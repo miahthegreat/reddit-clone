@@ -89,7 +89,7 @@ const SubscribeLeaveToggle = ({
 
   return isSubscribed ? (
     <Button
-      className="w-full mt-1 mb-4"
+      className="md:w-full py-5"
       isLoading={isUnsubLoading}
       onClick={() => unsubscribe()}
     >
@@ -97,7 +97,7 @@ const SubscribeLeaveToggle = ({
     </Button>
   ) : (
     <Button
-      className="w-full mt-1 mb-4"
+      className="md:w-full py-5"
       isLoading={isSubLoading}
       onClick={() => subscribe()}
     >

@@ -36,7 +36,8 @@ export default async function Home() {
 
             <Link
               className={buttonVariants({
-                className: "mb-6 mt-4 w-full",
+                className: "mb-6 mt-4 py-5 md:w-full",
+                variant: "outline",
               })}
               href={`/r/create`}
             >
